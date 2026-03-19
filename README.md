@@ -1,16 +1,15 @@
 # 💻 Hack Letter Show
 
-A visually engaging web project that displays text in a hacker-style animated format. Designed with dynamic letter effects and smooth transitions, it creates a terminal-like experience inspired by cyber and hacking interfaces.
+A visually engaging web project that displays text in a hacker-style animated format. Designed with smooth visual effects and a terminal-inspired interface, it delivers a cyber-themed experience with dynamic letter presentation.
 
 ---
 
 ## 🚀 Features
 
 - 💻 Hacker-style text animation  
-- ⌨️ Dynamic letter-by-letter display  
 - 🎨 Smooth visual effects  
 - ⚡ Lightweight and fast  
-- 💻 Clean terminal-inspired UI  
+- 💻 Terminal-inspired UI  
 
 ---
 
@@ -18,16 +17,13 @@ A visually engaging web project that displays text in a hacker-style animated fo
 
 - HTML  
 - CSS  
-- JavaScript  
 
 ---
 
 ## 📂 Project Structure
 
     Hack-letter-show/
-    │── index.html
-    │── style.css
-    │── script.js
+    │── Hack letter show.html
     │── README.md
     │── LICENSE
 
@@ -44,48 +40,39 @@ A visually engaging web project that displays text in a hacker-style animated fo
 ### Open directly in browser
 
 Windows:
-start index.html  
+start "Hack letter show.html"  
 
 Mac:
-open index.html  
+open "Hack letter show.html"  
 
 Linux:
-xdg-open index.html  
+xdg-open "Hack letter show.html"  
 
 ---
 
 ## 🎮 How It Works
 
 1. Open the application  
-2. Text appears with animated typing effect  
-3. Letters display dynamically like a terminal  
-4. Experience the hacker-style interface  
+2. Watch text appear in a hacker-style format  
+3. Experience smooth visual effects  
+4. Enjoy the terminal-like interface  
 
 ---
 
 ## 🖼️ Output
 
 - Animated letter display  
-- Terminal-style UI  
-- Smooth text transitions  
+- Hacker-style UI  
+- Smooth visual experience  
 
 ---
 
 ## 📌 Key Functionalities
 
-- Letter-by-letter animation  
-- Dynamic text rendering  
-- Smooth visual transitions  
+- Styled text rendering  
+- Visual effects using CSS  
+- Clean and simple interface  
 - Lightweight performance  
-
----
-
-## 📌 Future Improvements
-
-- ⌨️ Custom text input  
-- 🎨 Theme customization  
-- 🔊 Sound effects  
-- 📱 Mobile optimization  
 
 ---
 
