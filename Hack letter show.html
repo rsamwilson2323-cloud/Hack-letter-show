@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Matrix Wave – PC Version</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    overflow: hidden;
+  }
+  canvas {
+    position: fixed;
+    inset: 0;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 20;
+
+let cols, drops;
+let waveX = null;
+let waveStrength = 0;
+let waveSpeed = 0.025;
+
+// ---------- RESIZE ----------
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  canvas.style.width = innerWidth + "px";
+  canvas.style.height = innerHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  cols = Math.floor(innerWidth / fontSize);
+  drops = new Array(cols).fill(0).map(() => Math.random() * -50);
+}
+resize();
+window.addEventListener("resize", resize);
+
+// ---------- MOUSE MOVE ----------
+document.addEventListener("mousemove", e => {
+  waveX = e.clientX;
+  waveStrength = 25;
+});
+
+// ---------- MOUSE CLICK ----------
+document.addEventListener("mousedown", e => {
+  waveX = e.clientX;
+  waveStrength = 45;
+});
+
+// ---------- KEYBOARD ----------
+document.addEventListener("keydown", () => {
+  waveX = innerWidth / 2; // center for PC
+  waveStrength = 50;
+});
+
+// ---------- DRAW ----------
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.08)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.font = fontSize + "px monospace";
+  ctx.shadowColor = "#00ffaa";
+  ctx.shadowBlur = 15;
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = letters[Math.floor(Math.random() * letters.length)];
+
+    let offset = 0;
+    if (waveX !== null) {
+      const dx = i * fontSize - waveX;
+      offset = Math.sin(dx * waveSpeed) * waveStrength;
+    }
+
+    ctx.fillStyle = "#00ff66";
+    ctx.fillText(
+      char,
+      i * fontSize + offset,
+      drops[i] * fontSize
+    );
+
+    drops[i]++;
+
+    if (drops[i] * fontSize > innerHeight && Math.random() > 0.95) {
+      drops[i] = 0;
+    }
+  }
+
+  if (waveStrength > 0) waveStrength *= 0.96;
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
